@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Authors>Cristiano Campos(cristiano.campos@outlook.com)</Authors>
+    <Company>Cristiano Campo</Company>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CoreCompat.Selenium.WebDriver" Version="2.54.0-beta002" />
+  </ItemGroup>
+
+</Project>
