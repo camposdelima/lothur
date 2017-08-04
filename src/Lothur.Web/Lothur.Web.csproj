@@ -4,7 +4,9 @@
     <TargetFramework>netcoreapp1.1</TargetFramework>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Authors>Cristiano Campos(cristiano.campos@outlook.com)</Authors>
-    <Company>Cristiano Campo</Company>
+    <Company>Cristiano Campos</Company>
+    <PackageProjectUrl>https://github.com/camposdelima/lothur</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/camposdelima/lothur</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
