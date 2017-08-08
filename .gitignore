@@ -3,3 +3,7 @@
 ################################################################################
 
 /.vs
+/src/Lothur.Web/.vs/Lothur.Web/v15
+/src/Lothur.Web/.vs/Lothur.Web/v15
+/src/Lothur.Web/bin/Debug
+/src/Lothur.Web/obj

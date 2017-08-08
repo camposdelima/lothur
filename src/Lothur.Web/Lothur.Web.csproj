@@ -7,6 +7,9 @@
     <Company>Cristiano Campos</Company>
     <PackageProjectUrl>https://github.com/camposdelima/lothur</PackageProjectUrl>
     <RepositoryUrl>https://github.com/camposdelima/lothur</RepositoryUrl>
+    <Description>Web GUI Automation Framework</Description>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

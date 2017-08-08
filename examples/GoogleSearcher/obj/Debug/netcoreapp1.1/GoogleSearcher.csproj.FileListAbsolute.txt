@@ -1,0 +1,9 @@
+C:\Users\developer\Source\Repos\lothur\examples\GoogleSearcher\bin\Debug\netcoreapp1.1\GoogleSearcher.deps.json
+C:\Users\developer\Source\Repos\lothur\examples\GoogleSearcher\bin\Debug\netcoreapp1.1\GoogleSearcher.runtimeconfig.json
+C:\Users\developer\Source\Repos\lothur\examples\GoogleSearcher\bin\Debug\netcoreapp1.1\GoogleSearcher.runtimeconfig.dev.json
+C:\Users\developer\Source\Repos\lothur\examples\GoogleSearcher\bin\Debug\netcoreapp1.1\GoogleSearcher.dll
+C:\Users\developer\Source\Repos\lothur\examples\GoogleSearcher\obj\Debug\netcoreapp1.1\GoogleSearcher.csprojResolveAssemblyReference.cache
+C:\Users\developer\Source\Repos\lothur\examples\GoogleSearcher\obj\Debug\netcoreapp1.1\GoogleSearcher.AssemblyInfo.cs
+C:\Users\developer\Source\Repos\lothur\examples\GoogleSearcher\bin\Debug\netcoreapp1.1\GoogleSearcher.pdb
+C:\Users\developer\Source\Repos\lothur\examples\GoogleSearcher\obj\Debug\netcoreapp1.1\GoogleSearcher.dll
+C:\Users\developer\Source\Repos\lothur\examples\GoogleSearcher\obj\Debug\netcoreapp1.1\GoogleSearcher.pdb
