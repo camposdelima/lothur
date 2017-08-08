@@ -8,9 +8,16 @@
     <PackageProjectUrl>https://github.com/camposdelima/lothur</PackageProjectUrl>
     <RepositoryUrl>https://github.com/camposdelima/lothur</RepositoryUrl>
     <Description>Web GUI Automation Framework</Description>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>1.0.0.0</FileVersion>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <FileVersion>1.0.1.0</FileVersion>
+    <Version>1.0.1</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Lothur.Web.Tests\**" />
+    <EmbeddedResource Remove="Lothur.Web.Tests\**" />
+    <None Remove="Lothur.Web.Tests\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="CoreCompat.Selenium.WebDriver" Version="2.54.0-beta002" />

@@ -1,0 +1,14 @@
+C:\Users\developer\Source\Repos\lothur\src\Lothur.Web\Lothur.Web.Tests\bin\Release\netcoreapp1.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\developer\Source\Repos\lothur\src\Lothur.Web\Lothur.Web.Tests\bin\Release\netcoreapp1.1\xunit.runner.utility.netstandard15.dll
+C:\Users\developer\Source\Repos\lothur\src\Lothur.Web\Lothur.Web.Tests\bin\Release\netcoreapp1.1\xunit.runner.reporters.netstandard15.dll
+C:\Users\developer\Source\Repos\lothur\src\Lothur.Web\Lothur.Web.Tests\bin\Release\netcoreapp1.1\Lothur.Web.Tests.deps.json
+C:\Users\developer\Source\Repos\lothur\src\Lothur.Web\Lothur.Web.Tests\bin\Release\netcoreapp1.1\Lothur.Web.Tests.runtimeconfig.json
+C:\Users\developer\Source\Repos\lothur\src\Lothur.Web\Lothur.Web.Tests\bin\Release\netcoreapp1.1\Lothur.Web.Tests.runtimeconfig.dev.json
+C:\Users\developer\Source\Repos\lothur\src\Lothur.Web\Lothur.Web.Tests\bin\Release\netcoreapp1.1\Lothur.Web.Tests.dll
+C:\Users\developer\Source\Repos\lothur\src\Lothur.Web\Lothur.Web.Tests\bin\Release\netcoreapp1.1\Lothur.Web.Tests.pdb
+C:\Users\developer\Source\Repos\lothur\src\Lothur.Web\Lothur.Web.Tests\obj\Release\netcoreapp1.1\Lothur.Web.Tests.csprojResolveAssemblyReference.cache
+C:\Users\developer\Source\Repos\lothur\src\Lothur.Web\Lothur.Web.Tests\obj\Release\netcoreapp1.1\Lothur.Web.Tests.AssemblyInfo.cs
+C:\Users\developer\Source\Repos\lothur\src\Lothur.Web\Lothur.Web.Tests\obj\Release\netcoreapp1.1\Lothur.Web.Tests.dll
+C:\Users\developer\Source\Repos\lothur\src\Lothur.Web\Lothur.Web.Tests\obj\Release\netcoreapp1.1\Lothur.Web.Tests.pdb
+C:\Users\developer\Source\Repos\lothur\src\Lothur.Web\Lothur.Web.Tests\bin\Release\netcoreapp1.1\Lothur.Web.dll
+C:\Users\developer\Source\Repos\lothur\src\Lothur.Web\Lothur.Web.Tests\bin\Release\netcoreapp1.1\Lothur.Web.pdb

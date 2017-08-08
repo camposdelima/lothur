@@ -1,16 +1,19 @@
 ﻿using OpenQA.Selenium;
+using System.Threading.Tasks;
 
 namespace Lothur.Web
 {
-    public interface IPageAutomation:IWebAutomation
+    public interface IPageAutomation<TTask>:IWebAutomation<TTask>
+         where TTask : Task
     {
     }
 
-    public abstract class PageAutomation: WebAutomation, IPageAutomation
+    public abstract class PageAutomation<TTask>: WebAutomation<TTask>, IPageAutomation<TTask>
+        where TTask:Task
     {
-        protected string PageAddress { get; }
+        protected System.Uri PageAddress { get; }
 
-        public PageAutomation(string pageAddress, System.Uri uri,ICapabilities capabilities):base(uri, capabilities)
+        public PageAutomation(System.Uri pageAddress, System.Uri driverServer,ICapabilities capabilities):base(driverServer, capabilities)
         {
             this.PageAddress = pageAddress;
             Navigate();
@@ -18,7 +21,7 @@ namespace Lothur.Web
 
         protected virtual void Navigate()
         {
-            this.Navigate(this.PageAddress);
+            this.Navigate(this.PageAddress.AbsoluteUri);
         }
 
     }

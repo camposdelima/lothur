@@ -1,21 +1,24 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using System;
+using System.Threading.Tasks;
 
 namespace Lothur.Web
 {
-    public interface IWebAutomation: IDisposable
+    public interface IWebAutomation<TTask>: IDisposable
+        where TTask: Task
     {
-        void Execute();
+        TTask Execute();
     }
 
-    public abstract class WebAutomation : IWebAutomation
+    public abstract class WebAutomation<TTask> : IWebAutomation<TTask>
+         where TTask : Task
     {
         protected IWebDriver Driver { get; }
 
-        public WebAutomation(System.Uri uri, ICapabilities capabilities)
+        public WebAutomation(System.Uri driverServer, ICapabilities capabilities)
         {
-            Driver = new RemoteWebDriver(uri, capabilities);
+            Driver = new RemoteWebDriver(driverServer, capabilities);
         }
 
         protected void Navigate(string url)
@@ -23,7 +26,7 @@ namespace Lothur.Web
             this.Driver.Navigate().GoToUrl(url);
         }
 
-        public abstract void Execute();
+        public abstract TTask Execute();
 
         protected IWebElement Find(By by)
         {

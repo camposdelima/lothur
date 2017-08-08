@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v1.1": {
-      "lothur.web/1.0.0": {
+      "lothur.web/1.0.1": {
         "dependencies": {
           "CoreCompat.Selenium.WebDriver": "2.54.0-beta002"
         },
@@ -106,7 +106,7 @@
     }
   },
   "libraries": {
-    "lothur.web/1.0.0": {
+    "lothur.web/1.0.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
