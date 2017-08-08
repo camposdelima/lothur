@@ -18,7 +18,7 @@ namespace GoogleSearcher
 
         private static GoogleSearchAutomation CreateSearchAutomation()
         {
-            Uri driverServerURI = new Uri("http://192.168.1.103:4444");
+            Uri driverServerURI = new Uri("http://localhost:9515");
             ICapabilities driverCapabilities = new DesiredCapabilities();
 
             return new GoogleSearchAutomation(driverServerURI, driverCapabilities);
