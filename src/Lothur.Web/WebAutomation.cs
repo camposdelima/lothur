@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Lothur.Web
@@ -14,6 +15,8 @@ namespace Lothur.Web
     public abstract class WebAutomation<TTask> : IWebAutomation<TTask>
          where TTask : Task
     {
+        private const int WaitTimeout = 60;
+
         protected IWebDriver Driver { get; }
 
         public WebAutomation(System.Uri driverServer, ICapabilities capabilities)
@@ -38,6 +41,34 @@ namespace Lothur.Web
             return this.Driver.FindElement(By.CssSelector(selector));
         }
 
+        protected IWebElement TryFind(string selector)
+        {
+            try
+            {
+                return this.Find(selector);
+            } catch(NoSuchElementException)
+            {
+                return null;
+            }
+        }
+
+        protected IWebElement WaitForFind(string selector, int timeout = WaitTimeout)
+        {
+            this.WaitForCondition(() => this.TryFind(selector) != null, timeout);
+
+            return this.Find(selector);
+        }
+
+        /// <summary>
+        /// Wait for one expected condition.
+        /// </summary>
+        /// <param name="condition"></param>
+        /// <param name="timeout">Timeout, in seconds, for condition.</param>
+        protected void WaitForCondition(Func<bool> condition, int timeout = WaitTimeout)
+        {
+            SpinWait.SpinUntil(condition, timeout * 1000);
+        }
+        
         #region IDisposable Support
         private bool disposedValue = false; // To detect redundant calls
 

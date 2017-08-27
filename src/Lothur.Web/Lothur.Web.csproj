@@ -8,8 +8,8 @@
     <PackageProjectUrl>https://github.com/camposdelima/lothur</PackageProjectUrl>
     <RepositoryUrl>https://github.com/camposdelima/lothur</RepositoryUrl>
     <Description>Web GUI Automation Framework</Description>
-    <AssemblyVersion>1.0.1.0</AssemblyVersion>
-    <FileVersion>1.0.1.0</FileVersion>
+    <AssemblyVersion>1.0.2.0</AssemblyVersion>
+    <FileVersion>1.0.2.0</FileVersion>
     <Version>1.0.1</Version>
   </PropertyGroup>
 
