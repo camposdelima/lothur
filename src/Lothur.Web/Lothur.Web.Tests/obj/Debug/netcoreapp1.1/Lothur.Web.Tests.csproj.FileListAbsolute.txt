@@ -1,0 +1,4 @@
+C:\Users\Caio\Documents\Source\Lothur\lothur\src\Lothur.Web\Lothur.Web.Tests\obj\Debug\netcoreapp1.1\Lothur.Web.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Caio\Documents\Source\Lothur\lothur\src\Lothur.Web\Lothur.Web.Tests\obj\Debug\netcoreapp1.1\Lothur.Web.Tests.csproj.CoreCompileInputs.cache
+C:\Users\Caio\Documents\Source\Lothur\lothur\src\Lothur.Web\Lothur.Web.Tests\obj\Debug\netcoreapp1.1\Lothur.Web.Tests.AssemblyInfoInputs.cache
+C:\Users\Caio\Documents\Source\Lothur\lothur\src\Lothur.Web\Lothur.Web.Tests\obj\Debug\netcoreapp1.1\Lothur.Web.Tests.AssemblyInfo.cs

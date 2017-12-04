@@ -1,0 +1,16 @@
+C:\Users\Caio\Documents\Source\Lothur\lothur\src\Lothur.Web\Lothur.Web.Tests\bin\Debug\netcoreapp2.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\Caio\Documents\Source\Lothur\lothur\src\Lothur.Web\Lothur.Web.Tests\bin\Debug\netcoreapp2.0\xunit.runner.utility.netstandard15.dll
+C:\Users\Caio\Documents\Source\Lothur\lothur\src\Lothur.Web\Lothur.Web.Tests\bin\Debug\netcoreapp2.0\xunit.runner.reporters.netstandard15.dll
+C:\Users\Caio\Documents\Source\Lothur\lothur\src\Lothur.Web\Lothur.Web.Tests\bin\Debug\netcoreapp2.0\Lothur.Web.Tests.deps.json
+C:\Users\Caio\Documents\Source\Lothur\lothur\src\Lothur.Web\Lothur.Web.Tests\bin\Debug\netcoreapp2.0\Lothur.Web.Tests.runtimeconfig.json
+C:\Users\Caio\Documents\Source\Lothur\lothur\src\Lothur.Web\Lothur.Web.Tests\bin\Debug\netcoreapp2.0\Lothur.Web.Tests.runtimeconfig.dev.json
+C:\Users\Caio\Documents\Source\Lothur\lothur\src\Lothur.Web\Lothur.Web.Tests\bin\Debug\netcoreapp2.0\Lothur.Web.Tests.dll
+C:\Users\Caio\Documents\Source\Lothur\lothur\src\Lothur.Web\Lothur.Web.Tests\bin\Debug\netcoreapp2.0\Lothur.Web.Tests.pdb
+C:\Users\Caio\Documents\Source\Lothur\lothur\src\Lothur.Web\Lothur.Web.Tests\bin\Debug\netcoreapp2.0\Lothur.Web.dll
+C:\Users\Caio\Documents\Source\Lothur\lothur\src\Lothur.Web\Lothur.Web.Tests\bin\Debug\netcoreapp2.0\Lothur.Web.pdb
+C:\Users\Caio\Documents\Source\Lothur\lothur\src\Lothur.Web\Lothur.Web.Tests\obj\Debug\netcoreapp2.0\Lothur.Web.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Caio\Documents\Source\Lothur\lothur\src\Lothur.Web\Lothur.Web.Tests\obj\Debug\netcoreapp2.0\Lothur.Web.Tests.csproj.CoreCompileInputs.cache
+C:\Users\Caio\Documents\Source\Lothur\lothur\src\Lothur.Web\Lothur.Web.Tests\obj\Debug\netcoreapp2.0\Lothur.Web.Tests.AssemblyInfoInputs.cache
+C:\Users\Caio\Documents\Source\Lothur\lothur\src\Lothur.Web\Lothur.Web.Tests\obj\Debug\netcoreapp2.0\Lothur.Web.Tests.AssemblyInfo.cs
+C:\Users\Caio\Documents\Source\Lothur\lothur\src\Lothur.Web\Lothur.Web.Tests\obj\Debug\netcoreapp2.0\Lothur.Web.Tests.dll
+C:\Users\Caio\Documents\Source\Lothur\lothur\src\Lothur.Web\Lothur.Web.Tests\obj\Debug\netcoreapp2.0\Lothur.Web.Tests.pdb

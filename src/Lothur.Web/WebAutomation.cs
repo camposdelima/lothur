@@ -3,6 +3,8 @@ using OpenQA.Selenium.Remote;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using OpenQA.Selenium.Support;
+using OpenQA.Selenium.Support.UI;
 
 namespace Lothur.Web
 {
@@ -15,7 +17,7 @@ namespace Lothur.Web
     public abstract class WebAutomation<TTask> : IWebAutomation<TTask>
          where TTask : Task
     {
-        private const int WaitTimeout = 60;
+        private const int WaitTimeout = 10;
 
         protected IWebDriver Driver { get; }
 
@@ -24,9 +26,37 @@ namespace Lothur.Web
             Driver = new RemoteWebDriver(driverServer, capabilities);
         }
 
+        protected WebDriverWait WaitForIt(int timeout = 10)
+        {
+            return new WebDriverWait(this.Driver, TimeSpan.FromSeconds(timeout));
+        }
+
         protected void Navigate(string url)
         {
             this.Driver.Navigate().GoToUrl(url);
+        }
+
+        protected void TryNavigateToFrameAndSwitchIt(string frame, int timeout = WaitTimeout)
+        {
+            var wait = WaitForIt(timeout);
+            wait.Until(ExpectedConditions.FrameToBeAvailableAndSwitchToIt(frame));
+        }
+
+        protected IWebElement TryClickElement(By by, int timeout = WaitTimeout)
+        {
+            var wait = WaitForIt(timeout);
+            return wait.Until(ExpectedConditions.ElementToBeClickable(by));
+        }
+
+        protected bool CheckSelectedElement(By by, int timeout = WaitTimeout)
+        {
+            var wait = WaitForIt(timeout);
+            return wait.Until(ExpectedConditions.ElementToBeSelected(by));
+        }
+        protected IWebElement CheckElementIsVisible(By by, int timeout = WaitTimeout)
+        {
+            var wait = WaitForIt(timeout);
+            return wait.Until(ExpectedConditions.ElementIsVisible(by));
         }
 
         public abstract TTask Execute();
