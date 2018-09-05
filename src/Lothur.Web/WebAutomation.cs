@@ -1,15 +1,17 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
+using OpenQA.Selenium.Support.UI;
+using OpenQA.Selenium.Support;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using OpenQA.Selenium.Support;
-using OpenQA.Selenium.Support.UI;
 
 namespace Lothur.Web
 {
-    public interface IWebAutomation<TTask>: IDisposable
-        where TTask: Task
+    public interface IWebAutomation<TTask> : IDisposable
+        where TTask : Task
     {
         TTask Execute();
     }
@@ -17,46 +19,48 @@ namespace Lothur.Web
     public abstract class WebAutomation<TTask> : IWebAutomation<TTask>
          where TTask : Task
     {
-        private const int WaitTimeout = 10;
+        private const int WaitTimeout = 30;
+        private const int WaitInterval = 500;
 
         protected IWebDriver Driver { get; }
+        protected IClock Clock { get; } = new SystemClock();
+
+        protected virtual IEnumerable<IMiddlewareAutomation> Middlewares { get; }
 
         public WebAutomation(System.Uri driverServer, ICapabilities capabilities)
         {
             Driver = new RemoteWebDriver(driverServer, capabilities);
+            Init();
         }
 
-        protected WebDriverWait WaitForIt(int timeout = 10)
+        public WebAutomation(IWebDriver driver)
         {
-            return new WebDriverWait(this.Driver, TimeSpan.FromSeconds(timeout));
+            Driver = driver;
+            Init();
         }
 
-        protected void Navigate(string url)
+
+        private void Init()
+        {
+            ExecuteMiddlewares();
+        }
+
+        private void ExecuteMiddlewares()
+        {
+            if (Middlewares == null) return;
+
+            foreach (var middleware in Middlewares)
+                middleware.Execute();
+        }
+
+        protected virtual void Navigate(System.Uri uri)
+        {
+            this.Driver.Navigate().GoToUrl(uri.AbsoluteUri);
+        }
+
+        protected virtual void Navigate(string url)
         {
             this.Driver.Navigate().GoToUrl(url);
-        }
-
-        protected void TryNavigateToFrameAndSwitchIt(string frame, int timeout = WaitTimeout)
-        {
-            var wait = WaitForIt(timeout);
-            wait.Until(ExpectedConditions.FrameToBeAvailableAndSwitchToIt(frame));
-        }
-
-        protected IWebElement TryClickElement(By by, int timeout = WaitTimeout)
-        {
-            var wait = WaitForIt(timeout);
-            return wait.Until(ExpectedConditions.ElementToBeClickable(by));
-        }
-
-        protected bool CheckSelectedElement(By by, int timeout = WaitTimeout)
-        {
-            var wait = WaitForIt(timeout);
-            return wait.Until(ExpectedConditions.ElementToBeSelected(by));
-        }
-        protected IWebElement CheckElementIsVisible(By by, int timeout = WaitTimeout)
-        {
-            var wait = WaitForIt(timeout);
-            return wait.Until(ExpectedConditions.ElementIsVisible(by));
         }
 
         public abstract TTask Execute();
@@ -71,12 +75,28 @@ namespace Lothur.Web
             return this.Driver.FindElement(By.CssSelector(selector));
         }
 
+        protected IWebElement FindByName(string selector)
+        {
+            return this.Driver.FindElement(By.Name(selector));
+        }
+
+        protected IEnumerable<IWebElement> FindMany(By by)
+        {
+            return this.Driver.FindElements(by);
+        }
+
+        protected IEnumerable<IWebElement> FindMany(string selector)
+        {
+            return this.Driver.FindElements(By.CssSelector(selector));
+        }
+
         protected IWebElement TryFind(string selector)
         {
             try
             {
                 return this.Find(selector);
-            } catch(NoSuchElementException)
+            }
+            catch (NoSuchElementException)
             {
                 return null;
             }
@@ -84,9 +104,23 @@ namespace Lothur.Web
 
         protected IWebElement WaitForFind(string selector, int timeout = WaitTimeout)
         {
-            this.WaitForCondition(() => this.TryFind(selector) != null, timeout);
+            this.WaitForCondition(() => this.TryFind(selector), timeout);
 
             return this.Find(selector);
+        }
+
+        public IAlert SwitchToAlert()
+        {
+
+            try
+            {
+                return Driver.SwitchTo().Alert();
+
+            }
+            catch (NoAlertPresentException)
+            {
+                return null;
+            }
         }
 
         /// <summary>
@@ -94,11 +128,38 @@ namespace Lothur.Web
         /// </summary>
         /// <param name="condition"></param>
         /// <param name="timeout">Timeout, in seconds, for condition.</param>
-        protected void WaitForCondition(Func<bool> condition, int timeout = WaitTimeout)
+        protected void WaitForCondition(Func<bool> condition, int timeout = WaitTimeout, int interval = WaitInterval)
         {
-            SpinWait.SpinUntil(condition, timeout * 1000);
+            //SpinWait.SpinUntil(condition, timeout * 1000);
+            this.WaitForCondition<bool>(condition, timeout, interval);
         }
-        
+
+        /// <summary>
+        /// Wait for one expected condition.
+        /// </summary>
+        /// <param name="condition"></param>
+        /// <param name="timeout">Timeout, in seconds, for condition.</param>
+        protected void WaitForCondition<TResult>(Func<TResult> condition, int timeout = WaitTimeout, int interval = WaitInterval)
+        {
+            new WebDriverWait(this.Clock, this.Driver, TimeSpan.FromSeconds(timeout), TimeSpan.FromMilliseconds(WaitInterval)).Until(driver => condition());
+        }
+
+        protected TResult ExecuteScript<TResult>(string command)
+        {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)this.Driver;
+            return (TResult)js.ExecuteScript(command);
+        }
+
+        protected void ExecuteScript(string command)
+        {
+            ExecuteScript<object>(command);
+        }
+
+        public Screenshot GetScreenshot()
+        {
+            return ((ITakesScreenshot)this.Driver).GetScreenshot();
+        }
+
         #region IDisposable Support
         private bool disposedValue = false; // To detect redundant calls
 
