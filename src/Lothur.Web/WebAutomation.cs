@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using yozepi.Retry;
 
 namespace Lothur.Web
 {
@@ -158,6 +159,30 @@ namespace Lothur.Web
         public Screenshot GetScreenshot()
         {
             return ((ITakesScreenshot)this.Driver).GetScreenshot();
+        }
+
+        protected void Try(Action action, int retries = 3, int delay = 1)
+        {
+            try
+            {
+                TryIt.Try(action, retries).UsingDelay(TimeSpan.FromSeconds(delay)).ThenTry(() => { }, 1).Go();
+            }
+            catch (yozepi.Retry.RetryFailedException ex)
+            {
+                throw ((List<System.Exception>)ex.ExceptionList).LastOrDefault();
+            }
+        }
+
+        protected T Try<T>(Func<T> action, int retries = 3, int delay = 1)
+        {
+            try
+            {
+                return TryIt.Try<T>(action, retries).UsingDelay(TimeSpan.FromSeconds(delay)).ThenTry(() => default(T), 1).Go();
+            }
+            catch (yozepi.Retry.RetryFailedException ex)
+            {
+                throw ((List<System.Exception>)ex.ExceptionList).LastOrDefault();
+            }
         }
 
         #region IDisposable Support

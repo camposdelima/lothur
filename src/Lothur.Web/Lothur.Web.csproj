@@ -22,6 +22,7 @@
   <ItemGroup>
     <PackageReference Include="Selenium.Support" Version="3.14.0" />
     <PackageReference Include="Selenium.WebDriver" Version="3.14.0" />
+    <PackageReference Include="yozepi.Tryit" Version="2.0.1.1720101" />
   </ItemGroup>
 
 </Project>
