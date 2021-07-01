@@ -7,3 +7,6 @@
 /src/Lothur.Web/.vs/Lothur.Web/v15
 /src/Lothur.Web/bin/Debug
 /src/Lothur.Web/obj
+/examples/GoogleSearcher/.vs
+/examples/GoogleSearcher/bin
+/examples/GoogleSearcher/obj

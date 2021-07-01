@@ -13,7 +13,7 @@ namespace GoogleSearcher
 
         public override Task Execute()
         {
-            this.Find("#lst-ib").SendKeys("hello world");
+            this.Find(".a4bIc input[name='q']").SendKeys("hello world");
             this.Find("input[name='btnK']").Submit();
 
             return Task.CompletedTask;
